@@ -7,7 +7,23 @@
     <title>JS Events</title>
 </head>
 <body>
-    <h1>DOM Event Class</h1>
+    <h1 onclick="console.log('I am Clicked')">DOM Event Class</h1>
+    <button title="This is a tooltip" id="btn" onclick="console.log(7)">Click Me</button>
+    <button onclick="console.log(65)">Another Button</button>
+    <br>
+    <button onclick="document.body.style.backgroundColor = 'Yellow'">Click Me</button>
+    <button onclick="makeRed()">Make Red</button>
+    <button id="make-blue">Make Blue</button>
+    <button id="make-purple">Make Purple</button>
+
     <script src="js/events.js"></script>
+    <script>
+       const purpleButton = document.getElementById('make-purple');
+       purpleButton.onclick = function () {
+           document.body.style.backgroundColor = 'purple';
+
+         }
+
+    </script> 
 </body>
 </html>
