@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate and Benefit of Event Bubble</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Quasi, id at?</li>
+            <li class="item">Aspernatur, voluptates nobis!</li>
+            <li class="item">Harum, esse soluta!</li>
+            <li class="item">Cupiditate, blanditiis quod.</li>
+            <li class="item">Eaque, debitis? At?</li>
+        </ul>
+        <button id="btn-add-item">Add Item</button>
+    </section>
+    <script>
+        
+        /* const items = document.getElementsByClassName('item');
+        for (const item of items) {
+            item.addEventListener('click', function (event) {
+                // console.log(event.target.parentNode);
+                // console.log(event.target.innerText);
+                event.target.parentNode.removeChild(event.target);
+            })
+        } */
+
+        // How to remove items from the parent list: (Event Delegate)
+        const listContainer = document.getElementById('list-container');
+        listContainer.addEventListener('click', function (event) {
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
+        // How to add new items to the paremt list: (Event Delegate)
+        document.getElementById('btn-add-item').addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.innerText = 'This is a New Item';
+            li.classList.add('item');
+            document.getElementById('list-container').appendChild(li);
+        })
+    </script>
+</body>
+</html>
